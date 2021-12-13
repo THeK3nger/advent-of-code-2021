@@ -182,10 +182,11 @@ function matrixShow(matrix)
     M[[ci for ci in matrix]] .= 1
     M = M'
     MC = similar(M, Char)
-    MC[M.==1] .= '#'
-    MC[M.==0] .= '.'
-    display(MC)
-    println()
+    MC[M.==1] .= '█'
+    MC[M.==0] .= ' '
+    for l in eachrow(MC)
+        println(join(l))
+    end
 end
 
 function main()
